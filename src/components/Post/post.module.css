@@ -1,14 +1,14 @@
 .postContainer {
 	width: 100%;
 	max-width: 40rem;
-	max-height: 20rem;
+	height: auto;
 	background-color: #0d0d0e;
 	padding: 15px;
 	border: 1px solid #515151;
 	border-radius: 4px;
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
+	gap: 15px;
 }
 
 .postInfo {
@@ -40,6 +40,7 @@
 	width: 100%;
 	display: inline-flex;
 	flex-direction: column;
+	gap: 20px;
 }
 
 .postTitle {
@@ -48,4 +49,24 @@
 }
 
 .postMainContent {
+	width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.postImage {
+	display: flex;
+	width: 100%;
+	max-height: 512px;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+.postImage img {
+	object-fit: contain;
+	max-height: 512px;
 }
