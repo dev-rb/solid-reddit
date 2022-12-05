@@ -1,0 +1,51 @@
+.postContainer {
+	width: 100%;
+	max-width: 40rem;
+	max-height: 20rem;
+	background-color: #0d0d0e;
+	padding: 15px;
+	border: 1px solid #515151;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.postInfo {
+	display: inline-flex;
+	gap: 12px;
+}
+
+.postUserDate {
+	display: inline-flex;
+	gap: 8px;
+}
+
+.postUserDate p {
+	font-size: 11px;
+	color: #818181;
+}
+
+.postSubreddit {
+	color: #a8a8a8;
+}
+
+.postBy {
+}
+
+.postCreatedAt {
+}
+
+.postContent {
+	width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.postTitle {
+	font-size: 1.25rem;
+	color: #d4d4d4;
+}
+
+.postMainContent {
+}

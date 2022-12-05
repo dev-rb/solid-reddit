@@ -1,0 +1,34 @@
+.header {
+	width: 100%;
+	height: 48px;
+	background-color: var(--pane-color);
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.logo {
+	display: inline-flex;
+	align-items: center;
+}
+
+.logoIcon {
+	padding: 8px 0px 8px 0px;
+	width: 32px;
+	margin-right: 8px;
+}
+
+.logoName {
+	display: block;
+	height: 18px;
+	margin-right: 20px;
+	width: auto;
+}
+
+.searchBar {
+	width: 40rem;
+	height: 35px;
+	background-color: #303031;
+	margin: auto;
+	border-radius: 9999px;
+}
