@@ -1,11 +1,50 @@
-.postContainer {
+.post {
 	width: 100%;
 	max-width: 40rem;
 	height: auto;
 	background-color: #0d0d0e;
-	padding: 15px;
+	padding: 15px 15px 15px 10px;
 	border: 1px solid #515151;
 	border-radius: 4px;
+	display: flex;
+	gap: 20px;
+}
+
+.postVotes {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: center;
+}
+
+.postVotes .vote {
+	appearance: none;
+	outline: none;
+	background-color: transparent;
+	border: none;
+	width: fit-content;
+	color: #818181;
+	font-size: 25px;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.upvote:hover {
+	color: orangered;
+}
+
+.downvote:hover {
+	color: cornflowerblue;
+}
+
+.postScore {
+	font-size: 0.825rem;
+	font-weight: 600;
+}
+
+.postContainer {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -19,7 +58,7 @@
 
 .postUserDate {
 	display: inline-flex;
-	gap: 8px;
+	gap: 4px;
 }
 
 .postUserDate p {
@@ -69,6 +108,25 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.textContent {
+	position: relative;
+	color: #b3b3b3;
+	max-height: 50px;
+}
+
+.textContent::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(
+		transparent 10%,
+		rgba(13, 13, 14, 0.85) 100%
+	);
 }
 
 .videoContent {
