@@ -16,6 +16,9 @@ export interface PostDetails {
 	body: string;
 	body_html: string;
 	subreddit: string;
+	sr_detail: {
+		icon_img: string;
+	};
 	title: string;
 	downs: number;
 	name: string;
