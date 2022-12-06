@@ -30,7 +30,7 @@ export interface PostDetails {
 	locked: boolean;
 	subreddit_id: string;
 	id: string;
-	post_hint: 'link' | 'image';
+	post_hint: 'link' | 'image' | 'hosted:video';
 	gallery_data: {
 		items: {
 			caption?: string;
@@ -43,19 +43,13 @@ export interface PostDetails {
 			status: string;
 			e: string;
 			m: string;
-			p: {
-				x: number;
-				y: number;
-				u: string;
-			}[];
-			s: {
-				x: number;
-				y: number;
-				u: string;
-			};
+			p: PreviewImage[];
+			s: PreviewImage;
 			id: string;
 		};
 	};
+	media: Media | null;
+	is_video: boolean;
 	author: string;
 	num_comments: number;
 	permalink: string;
@@ -66,11 +60,55 @@ export interface PostDetails {
 	thumbnail_width: number | null;
 	thumbnail_height: number | null;
 	domain: string | null;
-	preview: {
-		images: {
-			source: { url: string; width: number; height: number };
-			resolutions: { url: string; width: number; height: number }[];
-			id: string;
-		}[];
+	preview: PreviewImages;
+}
+
+export type Media = Gif & Video;
+
+interface Gif {
+	oembed: {
+		provider_url: string;
+		description: string;
+		title: string;
+		author_name: string;
+		height: number;
+		width: number;
+		html: string;
+		thumbnail_width: number;
+		version: string;
+		provider_name: string;
+		thumbnail_url: string;
+		type: string;
+		thumbnail_height: number;
 	};
+	type: string;
+}
+
+interface Video {
+	reddit_video: {
+		bitrate_kbps: number;
+		fallback_url: string;
+		height: number;
+		width: number;
+		scrubber_media_url: string;
+		dash_url: string;
+		duration: number;
+		hls_url: string;
+		is_gif: boolean;
+		transcoding_status: string;
+	};
+}
+
+interface PreviewImages {
+	images: {
+		source: PreviewImage;
+		resolutions: PreviewImage[];
+		id: string;
+	}[];
+}
+
+interface PreviewImage {
+	url: string;
+	width: number;
+	height: number;
 }
