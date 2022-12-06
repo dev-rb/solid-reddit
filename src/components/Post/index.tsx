@@ -1,5 +1,6 @@
 import { createTimeAgo } from '@solid-primitives/date';
 import { createSignal, Match, Show, Switch } from 'solid-js';
+import { A, useNavigate } from 'solid-start';
 import { Media, PostDetails } from '~/types/reddit';
 import { CommentIcon } from '../icons/CommentIcon';
 import { FallbackIcon } from '../icons/SubredditFallbackIcon';
@@ -10,6 +11,8 @@ interface PostProps extends PostDetails {}
 
 const Post = (props: PostProps) => {
 	const [diff] = createTimeAgo(props.created * 1000);
+
+	const navigate = useNavigate();
 
 	const postType = () => {
 		if (props.media) {
@@ -22,6 +25,10 @@ const Post = (props: PostProps) => {
 		return 'text';
 	};
 
+	const goToPost = () => {
+		navigate(props.permalink);
+	};
+
 	const subredditIcon =
 		props.sr_detail?.community_icon ?? props.sr_detail?.icon_img;
 
@@ -29,7 +36,7 @@ const Post = (props: PostProps) => {
 		props.score > 1000 ? (props.score / 1000).toFixed(1) + 'k' : props.score;
 
 	return (
-		<div class={styles.post}>
+		<div class={styles.post} onClick={goToPost}>
 			<div class={styles.postVotes}>
 				<button class={`${styles.vote} ${styles.upvote}`}>
 					<UpvoteIcon />
@@ -85,6 +92,15 @@ const Post = (props: PostProps) => {
 					</div>
 				</div>
 				<div class={styles.postInteractions}>
+					<div class={styles.postVotes} data-mobile>
+						<button class={`${styles.vote} ${styles.upvote}`}>
+							<UpvoteIcon />
+						</button>
+						<span class={styles.postScore}> {postScore} </span>
+						<button class={`${styles.vote} ${styles.downvote}`}>
+							<DownvoteIcon />
+						</button>
+					</div>
 					<button class={`unstyled-button ${styles.postComments}`}>
 						<CommentIcon />
 						<span>{props.num_comments} Comments</span>
