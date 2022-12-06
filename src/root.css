@@ -45,3 +45,12 @@ main {
 	align-items: center;
 	gap: 20px;
 }
+
+.fallback-subreddit-icon {
+	width: 20px;
+	height: 20px;
+	fill: #0079d3;
+	background-color: white;
+	border-radius: 9999px;
+	border: 1px solid white;
+}

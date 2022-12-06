@@ -17,8 +17,10 @@ export interface PostDetails {
 	body_html: string;
 	subreddit: string;
 	sr_detail: {
-		icon_img: string;
+		icon_img: string | null;
+		community_icon: string | null;
 	};
+	selftext: string;
 	title: string;
 	downs: number;
 	name: string;

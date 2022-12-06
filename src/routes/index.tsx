@@ -6,7 +6,7 @@ import { Posts } from '~/types/reddit';
 export function routeData() {
 	return createRouteData(async () => {
 		const response = await fetch(
-			'https://www.reddit.com/hot.json?limit=50&raw_json=1&sr_detail=1'
+			'https://www.reddit.com/r/popular.json?limit=50&raw_json=1&sr_detail=1'
 		);
 
 		return ((await response.json()) as Posts).data.children;
