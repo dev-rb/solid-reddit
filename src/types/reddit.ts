@@ -1,3 +1,25 @@
+export interface RedditComment {
+	children: { data: CommentDetails }[];
+}
+
+export interface CommentDetails {
+	title: string;
+	body: string;
+	body_html: string;
+	permalink: string;
+	score: number;
+	ups: number;
+	author: string;
+	id: string;
+	created_utc: number;
+	replies: RedditCommentRoot;
+}
+
+export interface RedditCommentRoot {
+	kind: string;
+	data: RedditComment;
+}
+
 export interface Posts {
 	kind: string;
 	data: Post;

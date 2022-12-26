@@ -1,4 +1,4 @@
-import { For, Show } from 'solid-js';
+import { createEffect, For, Show } from 'solid-js';
 import { createRouteData, Title, useRouteData } from 'solid-start';
 import Post from '~/components/Post';
 import { Posts } from '~/types/reddit';
